@@ -8,39 +8,41 @@
 void cocktail_sort_list(listint_t **list)
 {
 	listint_t *current, *nextnode, *prev;
-	int swapp;
+	int finish_swapp;
 
 	if (list == NULL || *list == NULL || (*list)->next == NULL)
 		return;
 
 	current  = *list;
-	while (swapp == 0)
+	while (!finish_swapp)
 	{
-		swapp = 1;
+		finish_swapp = 1;
 		while (current->next != NULL)
 		{
 			nextnode = current->next;
 			if (current->n > nextnode->n)
 			{
 				swap_node(current, nextnode, list);
-				swapp = 0;
+				finish_swapp = 0;
 			}
 
 			else
 				current = current->next;
 		}
 		current = current->prev;
-		swapp = 1;
 		while (current->prev != NULL)
 		{
 			prev = current->prev;
 			if (current->n < prev->n)
 			{
 				swap_node(prev, current, list);
-				swapp = 0;
+				finish_swapp = 0;
 			}
 			else
+			{
 				current = current->prev;
+				finish_swapp = 1;
+			}
 		}
 	}
 }
