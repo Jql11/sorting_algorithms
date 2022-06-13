@@ -30,6 +30,7 @@ void cocktail_sort_list(listint_t **list)
 				current = current->next;
 		}
 		current = current->prev;
+		finish_swapp = 1;
 		while (current->prev != NULL)
 		{
 			prev = current->prev;
@@ -39,10 +40,7 @@ void cocktail_sort_list(listint_t **list)
 				finish_swapp = 0;
 			}
 			else
-			{
 				current = current->prev;
-				finish_swapp = 1;
-			}
 		}
 	}
 }
