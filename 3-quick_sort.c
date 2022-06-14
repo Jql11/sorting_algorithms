@@ -18,7 +18,7 @@ void swap(int *a, int *b)
 }
 /**
   *partition - Lomuto partition scheme
-  * @array[]: array of integers
+  * @array: array of integers
   * @low: lowest index
   * @high: last index
   * @size: number of integer
