@@ -8,7 +8,7 @@
 void cocktail_sort_list(listint_t **list)
 {
 	listint_t *current, *nextnode, *prev;
-	int finish_swapp;
+	int finish_swapp = 0;
 
 	if (list == NULL || *list == NULL || (*list)->next == NULL)
 		return;
@@ -29,8 +29,6 @@ void cocktail_sort_list(listint_t **list)
 			else
 				current = current->next;
 		}
-		current = current->prev;
-		finish_swapp = 1;
 		while (current->prev != NULL)
 		{
 			prev = current->prev;
