@@ -4,7 +4,7 @@
 
 /**
   * merge - merge two subarray of array
-  * @array - array
+  * @array: array
   * @low: left index
   * @mid: last index in first subarray after split
   * @high: last index of array
@@ -16,7 +16,7 @@ void merge(int *array, int low, int mid, int high)
 	int k = low;
 	int *array_temp;
 
-	array_temp = (int *)malloc(sizeof(array)); 
+	array_temp = (int *)malloc(sizeof(array));
 	if (array_temp == NULL)
 		return;
 	printf("merging...\n");
@@ -26,31 +26,23 @@ void merge(int *array, int low, int mid, int high)
 	print_array(array + mid, high - mid);
 	while (i <= mid && j <= high)
 	{
-		if (array[i] <= array[j])
-        	{
+		if (array[i] < array[j])
 			array_temp[k++] = array[i++];
-        	}
-        	else
-       	 	{
-            		array_temp[k] = array[j++];
-        	}
-
-    	}
+		else
+			array_temp[k++] = array[j++];
+	}
 	while (i <= mid)
 		array_temp[k++] = array[i++];
 	while (j <= high)
 		array_temp[k++] = array[j++];
-
-    	for (i = low; i < k; i++)
-    	{
-        	array[i] = array_temp[i];
-    	}
+	for (i = low; i < k; i++)
+		array[i] = array_temp[i];
 	printf("[Done]: ");
 	print_array(array, k);
-    	free(array_temp);
+	free(array_temp);
 }
 /**
- * mergeSort - recursion 
+ * mergeSort - recursion
  * @arr: array
  * @low: first index
  * @high: last index
