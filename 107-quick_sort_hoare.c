@@ -26,26 +26,23 @@ void swap(int *a, int *b)
 int partition(int array[], int low, int high, size_t size)
 {
 	int pivot = array[low];
-	int i = low, j = high;
+	int i = low - 1, j = high + 1;
 
 	while (1)
 	{
-		while (array[j] > pivot)
-			j--;
 		while (array[i] < pivot)
 			i++;
-
-        	if (i < j)
-		{
-			swap(&array[i], &array[j]);
-			print_array(array, size);
-		}
-		else
+		while (array[j] > pivot)
+			j--;
+		if (i >= j)
 			return (j);
+		swap(&array[i], &array[j]);
+		print_array(array, size);
 	}
+	return (-1);
 }
 /**
-  * quickSort: quicksort 
+  * quickSort - quicksort
   * @array: array of integers
   * @low: lowest index
   * @high: last index
