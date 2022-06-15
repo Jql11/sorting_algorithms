@@ -25,4 +25,6 @@ void cocktail_sort_list(listint_t **list);
 void counting_sort(int *array, size_t size);
 void heap_sort(int *array, size_t size);
 void _heapify(int *array, size_t i, size_t size, int const_size);
+void counting_sort(int *array, size_t size);
+int max_int(int *array, size_t size);
 #endif
